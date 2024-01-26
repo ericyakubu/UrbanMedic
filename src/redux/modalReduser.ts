@@ -1,9 +1,20 @@
-interface storeType {
+interface ModalState {
   showModal: boolean;
   modalType: "create" | "update";
 }
 
-const defaultStore: storeType = {
+interface ShowModalAction {
+  type: typeof SHOW_MODAL;
+  payload: "create" | "update";
+}
+
+interface HideModalAction {
+  type: typeof HIDE_MODAL;
+}
+
+type ModalActionTypes = ShowModalAction | HideModalAction;
+
+const defaultStore: ModalState = {
   showModal: false,
   modalType: "create",
 };
@@ -11,7 +22,10 @@ const defaultStore: storeType = {
 const SHOW_MODAL = "CREATE_MODAL";
 const HIDE_MODAL = "UPDATE_MODAL";
 
-export const modalReducer = (state = defaultStore, action) => {
+export const modalReducer = (
+  state = defaultStore,
+  action: ModalActionTypes
+) => {
   switch (action.type) {
     case SHOW_MODAL:
       return { ...state, showModal: true, modalType: action.payload };

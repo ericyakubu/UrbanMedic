@@ -1,3 +1,40 @@
+interface AddUsersAction {
+  type: typeof ADD_USERS;
+  payload: UsersType[];
+}
+
+interface SetUsersAction {
+  type: typeof SET_USERS;
+  payload: UsersType[];
+}
+
+interface AddNewUserAction {
+  type: typeof ADD_NEW_USER;
+  payload: UsersType;
+}
+
+interface SelectUserAction {
+  type: typeof SELECT_USER;
+  payload: number;
+}
+
+interface UpdateUserAction {
+  type: typeof UPDATE_USER;
+  payload: UsersType;
+}
+
+interface DeleteUserAction {
+  type: typeof DELETE_USER;
+}
+
+// Action type that includes all possible action types
+type UsersActionTypes =
+  | AddUsersAction
+  | SetUsersAction
+  | AddNewUserAction
+  | SelectUserAction
+  | UpdateUserAction
+  | DeleteUserAction;
 interface defaultStoreType {
   users: UsersType[];
   userSelected: number;
@@ -26,7 +63,10 @@ const ADD_NEW_USER = "ADD_NEW_USER";
 const SELECT_USER = "SELECT_USER";
 const UPDATE_USER = "UPDATE_USER";
 
-export const usersReducer = (state = defaultStore, action) => {
+export const usersReducer = (
+  state = defaultStore,
+  action: UsersActionTypes
+) => {
   switch (action.type) {
     case ADD_USERS:
       return { ...state, users: [...state.users, ...action.payload] };
@@ -47,7 +87,7 @@ export const usersReducer = (state = defaultStore, action) => {
       return {
         ...state,
         users: state.users.filter(
-          (user, index) => index !== state.userSelected
+          (_user, index) => index !== state.userSelected
         ),
       };
     default:
