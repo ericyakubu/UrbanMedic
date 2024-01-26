@@ -1,0 +1,131 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.create {
+  width: 600px;
+  padding: 24px 24px 32px;
+  border-radius: 16px;
+  border: 1px solid #f2f2f7;
+  background: $white;
+  box-shadow: 0px 20px 66px 0px rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  font-family: "Roboto", sans-serif;
+
+  &_head {
+    display: flex;
+    justify-content: space-between;
+    h3 {
+      color: $black;
+      @include title-03-bold;
+      width: fit-content;
+    }
+
+    &__close {
+      transform: translateY(-50%);
+      border: none;
+      background: none;
+      z-index: 100;
+    }
+  }
+
+  &_sex {
+    display: flex;
+    padding: 3px;
+    align-items: flex-start;
+    margin: 8px auto;
+    border-radius: 10px;
+    background: #f2f2f7;
+
+    button {
+      width: 170px;
+      padding: 6px 16px;
+      outline: none;
+      border: none;
+      border-radius: 8px;
+      @include title-05-bold;
+      color: #8e8e93;
+      background: none;
+
+      &.selected {
+        background: $white;
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.06);
+
+        color: $black;
+        text-align: center;
+      }
+    }
+  }
+
+  label {
+    @include text-placeholder;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  input {
+    @include text-body-reg;
+    border: none;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $inputBorderCol;
+    outline: none;
+  }
+
+  &_footer {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &__delete {
+      padding: 8.5px 10px;
+      border: none;
+      background: #f2f2f7;
+      border-radius: 8px;
+    }
+
+    &__submit {
+      display: flex;
+      padding: 11px 20px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      border-radius: 8px;
+      background: $buttonGradientDull;
+      width: 100%;
+
+      font-family: "Roboto", sans-serif;
+      color: $white;
+      @include title-05-bold;
+
+      &.filled {
+        background: $buttonGradient;
+      }
+    }
+  }
+
+  .errorMsg {
+    @include text-errorMsg;
+  }
+}
+
+.error {
+  border-bottom: 1px solid $red !important;
+}

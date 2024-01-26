@@ -1,0 +1,133 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.header {
+  display: flex;
+  width: 100%;
+  padding: 16px 24px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 16px;
+  background: $white;
+
+  &_addUser,
+  &_logout {
+    @include title-05-bold;
+    padding: 11px 20px;
+    border-radius: 8px;
+  }
+
+  &_addUser {
+    background: $buttonGradientAlt;
+    color: $white;
+  }
+
+  &_logout {
+    background: $grey;
+    color: $black;
+  }
+}
+
+.container {
+  background: #f7fcfe;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.table {
+  width: 750px;
+  max-width: 750px;
+  border-collapse: collapse;
+  position: relative;
+  margin: 48px auto 0;
+  overflow-x: hidden;
+  display: block;
+
+  tbody {
+    width: 100%;
+    max-height: 610px;
+    display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $grey;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background: linear-gradient(90deg, #00a5ee 1.58%, #14d7d1 96.24%);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      cursor: pointer;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    background: $grey;
+    // z-index: -1;
+  }
+
+  tr {
+    th,
+    td {
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: $grey;
+      @include text-caption01-bold;
+    }
+
+    td {
+      @include text-caption01-reg;
+      border: 1px solid $grey;
+      border-left: none;
+      background: $white;
+    }
+    :nth-child(1) {
+      min-width: 50px;
+    }
+    :nth-child(2) {
+      min-width: 130px;
+    }
+    :nth-child(3) {
+      min-width: 120px;
+    }
+    :nth-child(4) {
+      min-width: 120px;
+    }
+    :nth-child(5) {
+      width: 200px;
+      max-width: 200px;
+    }
+    :nth-child(6) {
+      min-width: 130px;
+      padding-right: 22px;
+      button {
+        padding: 8.513px 15.478px;
+        border-radius: 15.478px;
+        background: $grey;
+        width: 100%;
+        @include text-btn-grey-dark;
+        color: $greyDark;
+
+        &.active {
+          color: $white;
+          background: $buttonGradientAlt;
+        }
+      }
+    }
+  }
+}

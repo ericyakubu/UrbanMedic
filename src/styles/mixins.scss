@@ -1,0 +1,74 @@
+@mixin title-01-bold {
+  font-family: "Roboto", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@mixin title-03-bold {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.38px;
+}
+
+@mixin title-05-bold {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.15px;
+}
+
+@mixin text-body-reg {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+@mixin text-caption01-bold {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+@mixin text-caption01-reg {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+@mixin text-btn-grey-dark {
+  font-family: "Roboto", sans-serif;
+  font-size: 9.287px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12.383px;
+}
+
+@mixin text-placeholder {
+  color: #aeaeb2;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+@mixin text-errorMsg {
+  color: #f00;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0.4px;
+}

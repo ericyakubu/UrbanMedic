@@ -1,0 +1,73 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  background: #f7fcfe;
+}
+
+.login {
+  width: 438px;
+  padding: 50px 60px 32px;
+  border-radius: 24px;
+  background: $white;
+  box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  font-family: "Roboto", sans-serif;
+
+  h3 {
+    color: $black;
+    text-align: center;
+    @include title-01-bold;
+    margin-bottom: 16px;
+  }
+
+  label {
+    @include text-placeholder;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  input {
+    @include text-body-reg;
+    border: none;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $inputBorderCol;
+    outline: none;
+  }
+
+  button {
+    display: flex;
+    padding: 11px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 8px;
+    background: $buttonGradient;
+
+    color: $white;
+    @include title-05-bold;
+  }
+
+  .errorMsg {
+    margin-bottom: 16px;
+    @include text-errorMsg;
+  }
+}
+
+.error {
+  border-bottom: 1px solid $red !important;
+}
