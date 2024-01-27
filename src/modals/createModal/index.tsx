@@ -22,7 +22,9 @@ const CreateModal: FunctionComponent = () => {
   const closeRef = useRef<HTMLButtonElement | null>(null);
   const dispatch = useDispatch();
 
-  const modalType = useSelector((state: RootState) => state.modal.modalType);
+  const { modalType, showModal } = useSelector(
+    (state: RootState) => state.modal
+  );
 
   const handleHideModal = (e: MouseEvent<HTMLElement>): void => {
     const isCloseButton =
@@ -85,8 +87,17 @@ const CreateModal: FunctionComponent = () => {
       className={classes.container}
       ref={containerRef}
       onClick={handleHideModal}
+      style={
+        showModal
+          ? { opacity: 1, pointerEvents: "auto", background: "#00000052" }
+          : {}
+      }
     >
-      <form className={classes.create} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={classes.create}
+        onSubmit={handleSubmit(onSubmit)}
+        style={showModal ? { top: "50%" } : {}}
+      >
         <div className={classes.create_head}>
           {modalType === "create" ? (
             <h3>Новый пользователь</h3>

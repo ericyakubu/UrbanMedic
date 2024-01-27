@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { RootState } from "../../redux";
 
 const UsersPage: FunctionComponent = () => {
-  const showModal = useSelector((state: RootState) => state.modal.showModal);
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -116,7 +115,7 @@ const UsersPage: FunctionComponent = () => {
         </table>
       </div>
 
-      {showModal && <CreateModal />}
+      <CreateModal />
     </>
   );
 };
